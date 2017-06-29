@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  <script type="text/babel">
+  var WebName = React.createClass({
+    render: function(){
+      return <h1>{this.props.webname}</h1>;
+    }
+  });
+  var WebLink = React.createClass({
+    render: function(){
+      return <a href="http://www.baidu.com">{this.props.weblink}</a>;
+    }
+  });
+  var ShowWeb = React.createClass({
+    render: function(){
+      return(
+        <div>
+          <WebName webname={this.props.wname}/>
+          <WebLink weblink={this.props.wlink}/>
+        </div>
+      );
+    }
+  });
+  var Link = React.createClass({
+    render: function(){
+      return <a{...this.props}>{this.props.name}</a>
+    }
+  });
+  // ReactDOM.render(
+  //   <ShowWeb wname="hhhhhh" wlink="http://www.baidu.com"/>,
+  //   document.getElementById('container')
+  // );
+  // ReactDOM.render(
+  // <Link href="http://www.baidu.com" name="jsdfjsdk"/>,
+  // document.getElementById('container')
+  //);
+  var ListComponent = React.createClass({
+    render: function(){
+      return (
+        <ul>
+          {
+            React.Children.map(this.props.children,function(child){
+              return <li>{child}</li>
+            })
+          }
+        </ul>
+      );
+    }
+  });
+  ReactDOM.render((
+    <ListComponent>
+        <h1>hfaihfiodfh</h1>
+        <a href="http://www.baidu.com">www</a>
+      </ListComponent>
+    ),
+    document.getElementById("container")
+  )
+  </script>
+</html>

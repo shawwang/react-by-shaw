@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <style>
+      .pStyle{
+        font-size:100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+   <script type="text/babel">
+  // var HelloMessage = React.createClass({
+  //     render: function(){
+  //       return <h1>Hello Message</h1>;
+  //     }
+  //   });
+  //   ReactDOM.render(
+  //     <HelloMessage/>,
+  //     document.getElementById('container')
+  //   );
+  var hStyle = {
+    backgroundColor:"green",
+    color: "red"
+  }
+  var ShowMessage = React.createClass({
+    render: function(){
+      return(
+        <div style={{backgroundColor:"yellow",borderWidth:5,borderColor:"black",borderStyle:"solid"}}>
+          <h1 style={hStyle}>{this.props.firstRow}</h1>
+          <p className="pStyle">{this.props.secondRow}</p>
+        </div>
+      );
+    }
+  });
+  ReactDOM.render(
+    <ShowMessage firstRow="Hello" secondRow="Hi"/>,
+    document.getElementById("container")
+  );
+    </script>
+</html>
